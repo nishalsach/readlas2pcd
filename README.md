@@ -1,5 +1,5 @@
 # readlas2pcd
-Read .las file and convert it to .pcd file for use with Point Cloud Library PCL. Also allows for downsampling of the point cloud. Forked from [svensMPG](https://github.com/svensMPG/readlas2pcd) on Github and modified 
+Read .las file and convert it to .pcd file for use with Point Cloud Library PCL. Also allows for downsampling of the point cloud. Forked from [svensMPG](https://github.com/svensMPG/readlas2pcd) on Github and modified to work for me.
 
 ## Requirements
 
