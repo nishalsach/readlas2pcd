@@ -8,7 +8,7 @@ The code was written in C++ on Linux with the following libraries installed:
 + Point Cloud Library (PCL) (http://www.pointclouds.org/downloads) 
 + libLAS (https://liblas.org) 
 
-(As of 2018, libLAS is in maintenance mode and it does not support LAS 1.4, for which PDAL is used (https://pdal.io/). However, libLAS worked for the version of LAS used for this project.)
+(As of 2018, libLAS is in maintenance mode and it does not support LAS 1.4, for which PDAL is used (https://pdal.io/). However, libLAS worked for the version of LAS (LAS 1.0) used for this project.)
 
 ## Setup
 
