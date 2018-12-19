@@ -29,24 +29,18 @@ viewer (typename pcl::PointCloud<PointInT>::Ptr &cloud)
 
 int  main (int argc, char** argv){
 
-// Checking parameters and input arguments
-   if (argc == 1){
-        PCL_ERROR ("No file specified... aborting.");
-        return -1;
-    }
-
-
   pcl::PointCloud<PointT>::Ptr cloudIn (new pcl::PointCloud<PointT>);
 
 
 // Checking parameters and input arguments
   if (argc < 2){
-      pcl::console::print_error ("Syntax is: %%s <LAS-INPUT>  \t are mandatory.\nOtional are: \n "
+      pcl::console::print_error ("Syntax is: %%s <LAS-INPUT>  \t are mandatory.\n Optional arguments are: \n "
                                          "-setZero: setMinXYZ close to zero. set to 1 (enable) or 0 (disable) \n "
-                                         "-downsample: float [0, 0.025,1] \n"
-                                         "-ext: (optional), use [pcd=default or txt]\n"
-                                         "-skip X: where x is a integer > 1 to skip each Xth point when writing to txt (only works with txt)\n"
-                                         "-bits y: switch between 16 bits (default) or 8 bits color output). Only works with txt output.", argv[0]);
+                                         "-downsample: float [0, 0.025,1] \n", 
+                                         //"-ext: (optional), use [pcd=default or txt]\n"
+                                         //"-skip X: where x is a integer > 1 to skip each Xth point when writing to txt (only works with txt)\n"
+                                         //"-bits y: switch between 16 bits (default) or 8 bits color output). Only works with txt output.",
+                                 argv[0]);
       return -1;
    }
 
@@ -55,7 +49,7 @@ int  main (int argc, char** argv){
     bool subtractMinVals = false;
     pcl::console::parse (argc, argv, "-setZero", subtractMinVals);
 
-    //check if extension keyword was specified. If not, use pcd, else use xyz extension.
+   /* //check if extension keyword was specified. If not, use pcd, else use xyz extension.
     bool Extension_specified = pcl::console::find_switch (argc, argv, "-ext");
     std::string ext = "txt";
     if (Extension_specified){
@@ -66,11 +60,11 @@ int  main (int argc, char** argv){
             std::cout << "unknown extension: " << ext << "\nUsing default extension txt" << std::endl;
             ext = "txt";
         }
-    }
+    }*/
 
     unsigned int colorDepth = 16;
 
-    if (ext.compare("txt") == 0){
+    /*if (ext.compare("txt") == 0){
 
         if ( pcl::console::find_switch (argc, argv, "-bits") ){
             pcl::console::parse (argc, argv, "-bits", colorDepth);
@@ -79,10 +73,11 @@ int  main (int argc, char** argv){
             else
                 std::cout << "wrong colorDepth defined. Falling back to same as input file..." << std::endl;
         }
-    }
+    }*/
 
 
     unsigned int skipPts = 1;
+  /*
     if (ext.compare("txt") == 0){
 
         if ( pcl::console::find_switch (argc, argv, "-skip") ){
@@ -92,7 +87,7 @@ int  main (int argc, char** argv){
             else
                 std::cout << "skipping every " << skipPts << "th point in output txt file." << std::endl;
         }
-    }
+    }*/
 
     // check if the user wants to downsample the point cloud using the voxelgrid function. Specfiy standard values for the leafSize.
     float gridLeafSize = 0.25;
@@ -121,7 +116,7 @@ int  main (int argc, char** argv){
         std::vector<double> minXYZValues;
         // reading in LAS file and returning a PCD cloud PointT data.
        // if (ext.compare("pcd") == 0){
-        convertLAS<PointT>(argv[1], cloudIn, minXYZValues, gridLeafSize, subtractMinVals, ext, skipPts, colorDepth);
+        convertLAS<PointT>(argv[1], cloudIn, minXYZValues, gridLeafSize, subtractMinVals, "pcd", skipPts, colorDepth);
         //    viewer<PointT> (cloudIn);
        // }
         //else
