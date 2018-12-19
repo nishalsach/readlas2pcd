@@ -14,18 +14,18 @@ The code was written in C++ on Linux with the following libraries installed:
 
 The following steps need to be followed to setup your LAS to PCL converter:
 
-<code>
-  git clone https://github.com/nishalsach/readlas2pcd
-  cd readlas2pcd
-  cmake .
-  make
-</code>
+
+      git clone https://github.com/nishalsach/readlas2pcd
+      cd readlas2pcd
+      cmake .
+      make
+
 
 In order to run the most basic conversion on LAS to PCD:
 
-<code>
-  ./readLAS2PCD <INPUT-PATH>
-  </code>
+
+      ./readLAS2PCD <INPUT-PATH>
+
   
  The code also contains provisions to downsample the original LAS file, however, since this repositry has been forked from another version, that functionality is unverified here. 
   
