@@ -27,6 +27,6 @@ In order to run the most basic conversion on LAS to PCD:
       ./readLAS2PCD <INPUT-PATH>
 
   
- The code also contains provisions to downsample the original LAS file, however, since this repositry has been forked from another version, that functionality is unverified here. 
+ The code also contains provisions to downsample the original LAS file. However, since this repositry has been forked from another version, that functionality is unverified here. 
   
 
